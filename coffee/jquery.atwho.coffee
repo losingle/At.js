@@ -20,7 +20,7 @@
    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ###
 
 (($) ->
@@ -73,7 +73,7 @@
                 stop = e.keyCode is 40 or e.keyCode is 38
                 lookup = not (stop and @.view.isShowing())
                 @.lookup() if lookup
-            .on "mouseup.inputor",(e) =>
+            .on "mouseup.inputor, focus.inputor",(e) =>
                 @.lookup()
         @.init()
         log "At.new", $inputor[0]
@@ -387,7 +387,7 @@
         results.sort (a,b) ->
             a.order - b.order
         return results
-        
+
 
     ###
       maybe we can use $._unique.
@@ -411,7 +411,7 @@
         or target is undefined
 
     _DEFAULT_TPL = "<li id='${id}' data-value='${name}'>${name}</li>"
-    
+
     log = () ->
         #console.log(arguments)
 
@@ -427,7 +427,7 @@
     $.fn.atWho.default =
         data: []
         # Parameter: choose
-        ## specify the attribute on customer tpl, 
+        ## specify the attribute on customer tpl,
         ## so that we could append different value to the input other than the value we searched in
         choose: "data-value"
         callback: null
